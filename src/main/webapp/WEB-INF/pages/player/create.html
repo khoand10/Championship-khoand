@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>Create player</title>
+</head>
+<body>
+<section layout:fragment="content">
+    <h1>Create player</h1>
+    <div class="col-md-6 offset-3">
+        <br>
+        <th:block th:if="${message}">
+            <div class="alert alert-success" role="alert" th:text="${message}">
+            </div>
+        </th:block>
+
+        <form th:action="@{/player/create}" th:object="${player}" method="post" class="form">
+            <table>
+
+                <tr>
+                    <td>Name :</td>
+                    <td><input type="text" th:field="*{name}" class="form-group"/></td>
+                </tr>
+
+                <tr>
+                    <td>Age :</td>
+                    <td><input type="text" th:field="*{age}" class="form-group"/></td>
+                </tr>
+                <tr>
+                    <td>Height :</td>
+                    <td><input type="text" th:field="*{height}" class="form-group"/></td>
+                </tr>
+                <tr>
+                    <td>Nationality :</td>
+                    <td><input type="text" th:field="*{nationality}" class="form-group"/></td>
+                </tr>
+                <tr>
+                    <td>Position :</td>
+                    <td><input type="text" th:field="*{position}" class="form-group"/></td>
+                </tr>
+
+                <br>
+                <tr>
+                    <td></td>
+                    <td>
+                        <div>
+                            <input type="submit" value="Creat player " class="btn btn-primary">
+                        </div>
+                    </td>
+                </tr>
+                <br>
+            </table>
+        </form>
+    </div>
+</section>
+</body>
+</html>
